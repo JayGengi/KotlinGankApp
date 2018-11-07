@@ -1,0 +1,171 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+	package
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:3:5-28
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:2:5-51
+	android:versionCode
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:1-86:12
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:8:22-78
+uses-permission#android.permission.INTERNET
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:9:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:10:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:11:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:12:5-75
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:12:22-72
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:13:22-68
+uses-permission#android.permission.GET_TASKS
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:14:5-68
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:14:22-65
+uses-permission#android.permission.WAKE_LOCK
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:15:5-68
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:15:22-65
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:16:5-80
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:16:22-77
+uses-permission#android.permission.VIBRATE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:17:5-66
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:17:22-63
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:18:5-79
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:18:22-76
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:19:5-81
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:19:22-78
+application
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:21:5-84:19
+meta-data#RONG_CLOUD_APP_KEY
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:24:9-26:45
+	android:value
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:26:13-42
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:25:13-46
+service#io.rong.imlib.ipc.RongService
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:28:9-31:38
+	android:process
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:29:13-57
+receiver#io.rong.imlib.ConnectChangeReceiver
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:33:9-35:39
+	android:exported
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:35:13-36
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:34:13-63
+receiver#io.rong.imlib.HeartbeatReceiver
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:37:9-39:38
+	android:process
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:39:13-35
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:38:13-59
+service#io.rong.push.core.PushRegistrationService
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:46:9-49:72
+	android:exported
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:48:13-36
+	android:permission
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:49:13-69
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:47:13-69
+service#io.rong.push.core.MessageHandleService
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:51:9-54:72
+	android:exported
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:53:13-36
+	android:permission
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:54:13-69
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:52:13-66
+service#io.rong.push.PushService
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:57:9-61:46
+	android:process
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:61:13-43
+	android:exported
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:59:13-36
+	android:permission
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:60:13-69
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:58:13-52
+receiver#io.rong.push.PushReceiver
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:64:9-79:20
+	android:process
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:66:13-43
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:65:13-53
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE+action:name:io.rong.push.intent.action.HEART_BEAT
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:68:13-71:29
+action#io.rong.push.intent.action.HEART_BEAT
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:69:17-80
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:69:25-77
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:70:17-79
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:70:25-76
+intent-filter#action:name:android.intent.action.ACTION_POWER_CONNECTED+action:name:android.intent.action.ACTION_POWER_DISCONNECTED+action:name:android.intent.action.USER_PRESENT
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:74:13-78:29
+action#android.intent.action.USER_PRESENT
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:75:17-77
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:75:25-74
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:76:17-87
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:76:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:77:17-90
+	android:name
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml:77:25-87
+uses-sdk
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		ADDED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
+		INJECTED from E:\kotlinProject\MyKotlinMvp\IMLib\AndroidManifest.xml
