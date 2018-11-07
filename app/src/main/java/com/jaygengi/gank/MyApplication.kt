@@ -97,11 +97,6 @@ class MyApplication : MultiDexApplication(){
             override fun onSuccess(userid: String) {
                 showToast(userid)
                 Log.d("LoginActivity", "--onSuccess$userid")
-                //启动会话界面
-//                if (RongIM.getInstance() != null)
-//                    RongIM.getInstance().startPrivateChat(context, "123456", "JayGengi")
-//                 RongIM.getInstance().startConversationList(context)
-//                 startActivity(Intent(context, MainActivity::class.java))
             }
 
             /**

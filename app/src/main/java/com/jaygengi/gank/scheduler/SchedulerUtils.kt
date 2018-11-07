@@ -1,4 +1,4 @@
-package com.jaygengi.gank.rx.scheduler
+package com.jaygengi.gank.scheduler
 
 /**
  * Created by xuhao on 2017/11/17.

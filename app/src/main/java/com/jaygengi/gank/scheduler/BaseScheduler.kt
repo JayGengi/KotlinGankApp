@@ -1,4 +1,4 @@
-package com.jaygengi.gank.rx.scheduler
+package com.jaygengi.gank.scheduler
 
 import io.reactivex.*
 import org.reactivestreams.Publisher

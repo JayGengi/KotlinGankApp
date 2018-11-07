@@ -26,12 +26,12 @@ import java.util.*
 class MainActivity : BaseActivity() {
 
 
-    private val mTitles = arrayOf("厂家首页", "消息中心", "个人中心")
+    private val mTitles = arrayOf("首页", "分类", "个人中心")
 
     // 未被选中的图标
-    private val mIconUnSelectIds = intArrayOf(R.mipmap.ic_home_normal, R.mipmap.ic_discovery_normal, R.mipmap.ic_mine_normal)
+    private val mIconUnSelectIds = intArrayOf(R.mipmap.ic_home_normal, R.mipmap.ic_classification_normal, R.mipmap.ic_mine_normal)
     // 被选中的图标
-    private val mIconSelectIds = intArrayOf(R.mipmap.ic_home_selected, R.mipmap.ic_discovery_selected, R.mipmap.ic_mine_selected)
+    private val mIconSelectIds = intArrayOf(R.mipmap.ic_home_selected, R.mipmap.ic_classification_selected, R.mipmap.ic_mine_selected)
 
     private val mTabEntities = ArrayList<CustomTabEntity>()
 

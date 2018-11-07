@@ -2,7 +2,7 @@ package com.jaygengi.gank.mvp.model
 
 import com.jaygengi.gank.mvp.model.bean.CategoryBean
 import com.jaygengi.gank.net.RetrofitManager
-import com.jaygengi.gank.rx.scheduler.SchedulerUtils
+import com.jaygengi.gank.scheduler.SchedulerUtils
 import io.reactivex.Observable
 
 /**
