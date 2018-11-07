@@ -4,10 +4,12 @@ import android.os.Bundle
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseFragment
 
-/**
- * Created by xuhao on 2017/11/8.
- * 首页精选
- */
+ /**  
+   * @description: 首页
+   * @author JayGengi
+   * @date  2018/11/7 0007 下午 5:00
+   * @email jaygengiii@gmail.com
+   */
 
 class HomeFragment : BaseFragment() {
     private var mTitle: String? = null
