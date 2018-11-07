@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hazz.mykotlinmvp">
+    package="com.jaygengi.gank">
 
     <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -43,7 +43,7 @@
         </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.hazz.mykotlinmvp.FileProvider"
+            android:authorities="com.jaygengi.gank.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -67,7 +67,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data
-                    android:host="com.hazz.mykotlinmvp"
+                    android:host="com.jaygengi.gank"
                     android:pathPrefix="/conversationlist"
                     android:scheme="rong" />
             </intent-filter>
@@ -85,7 +85,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data
-                    android:host="com.hazz.mykotlinmvp"
+                    android:host="com.jaygengi.gank"
                     android:pathPrefix="/conversation/"
                     android:scheme="rong" />
             </intent-filter>
