@@ -7,6 +7,10 @@ package com.jaygengi.gank.api
    * @email jaygengiii@gmail.com
    */
 object UrlConstant{
-    const val BASE_URL = "http://baobab.kaiyanapp.com/api/"
 
+    const val BASE_URL = "http://baobab.kaiyanapp.com/api/"
+     /**
+      * 网络请求时长
+      */
+     const val HTTP_TIME = 5000
 }
