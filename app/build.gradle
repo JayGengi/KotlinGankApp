@@ -117,6 +117,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     //smartRefreshLayout 下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
     //Google开源的一个布局控件
     implementation 'com.google.android:flexbox:1.0.0'
     implementation project(':multiple-status-view')
@@ -133,4 +134,9 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
 
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    //今日头条屏幕适配
+//    implementation 'me.jessyan:autosize:1.0.6'
 }
