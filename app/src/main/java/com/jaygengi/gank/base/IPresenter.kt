@@ -2,11 +2,12 @@ package com.jaygengi.gank.base
 
 
 
-/**
- * @author Jake.Ho
- * created: 2017/10/25
- * desc: Presenter 基类
- */
+ /**  
+   * @description: Presenterj基类
+   * @author JayGengi
+   * @date  2018/11/13 0013 上午 10:35
+   * @email jaygengiii@gmail.com
+   */
 
 
 interface IPresenter<in V: IBaseView> {

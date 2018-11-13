@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentTransaction
 import android.view.KeyEvent
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
+import com.jaygengi.gank.mvp.model.bean.TabEntity
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseActivity
-import com.jaygengi.gank.mvp.model.bean.TabEntity
 import com.jaygengi.gank.showToast
 import com.jaygengi.gank.ui.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*

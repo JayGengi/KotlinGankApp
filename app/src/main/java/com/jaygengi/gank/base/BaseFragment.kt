@@ -14,11 +14,12 @@ import io.reactivex.annotations.NonNull
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-/**
- * @author Xuhao
- * created: 2017/10/25
- * desc:
- */
+ /**  
+   * @description: Fragment基类
+   * @author JayGengi
+   * @date  2018/11/13 0013 上午 10:35
+   * @email jaygengiii@gmail.com
+   */
 
  abstract class BaseFragment: Fragment(),EasyPermissions.PermissionCallbacks{
 

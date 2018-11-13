@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions' //扩展插件
-
 apply plugin: 'kotlin-kapt'  //kapt3插件
 
 android {
@@ -15,14 +12,14 @@ android {
 //            storePassword 'ktmp123456'
 //        }
     }
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion 27
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.jaygengi.gank"
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion 18
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.1.0"
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -34,12 +31,10 @@ android {
         renderscriptSupportModeEnabled true    // Enable RS support
 
         ndk {
-
             //APP的build.gradle设置支持的SO库架构
             abiFilters 'armeabi', 'armeabi-v7a', 'x86'
         }
         multiDexEnabled true
-
     }
     buildTypes {
         debug {
@@ -54,7 +49,6 @@ android {
 //            signingConfig signingConfigs.config
             zipAlignEnabled true
         }
-
     }
     sourceSets {
         main {
@@ -62,14 +56,12 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
     // 自定义输出配置
     android.applicationVariants.all { variant ->
         variant.outputs.all {
             outputFileName = "kotlinmvp_v${variant.versionName}_${variant.name}.apk"
         }
     }
-
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -78,72 +70,67 @@ android {
 
     }
 
-
     dexOptions {
         jumboMode true
     }
-
     lintOptions {
         abortOnError false
     }
-
-
 }
-
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1') {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    implementation 'com.android.support:multidex:1.0.3'
-    // Support库
-    implementation rootProject.ext.supportLibs
-    // 网络请求库
-    implementation rootProject.ext.networkLibs
-    // RxJava2
-    implementation rootProject.ext.rxJavaLibs
-    implementation rootProject.ext.otherLibs
-    // APT dependencies(Kotlin内置的注解处理器)
-    kapt rootProject.ext.annotationProcessorLibs
+    //kotlin 支持库
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Support库
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //qmui
+    implementation 'com.qmuiteam:qmui:1.1.6'
     // 底部菜单
     implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
         exclude group: 'com.android.support', module: 'support-v4'
     }
-    //kotlin 支持库
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //GlideOkHttp
-    implementation(rootProject.ext.glideOkhttp) {
-        exclude group: 'glide-parent'
-    }
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    //rxjava2
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    //Retrofit依赖OkHttp来进行网络请求 日志拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
+    ////BaseQuickAdapter[很赞的适配器封装]
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     //smartRefreshLayout 下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-    //Banner
-    implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
-    // 视屏播放器
-    implementation 'com.shuyu:GSYVideoPlayer:2.1.1'
-    //Logger
-    implementation 'com.orhanobut:logger:2.1.1'
     //Google开源的一个布局控件
     implementation 'com.google.android:flexbox:1.0.0'
     implementation project(':multiple-status-view')
     //模糊透明 View
     implementation 'com.github.mmin18:realtimeblurview:1.1.0'
-    //leakCanary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     //腾讯 bugly
     implementation 'com.tencent.bugly:crashreport:2.6.6.1'
     //运行时权限
-    implementation'pub.devrel:easypermissions:1.2.0'
+    implementation 'pub.devrel:easypermissions:1.2.0'
 
-    // MiPush_Client
-    api files('libs/MiPush_SDK_Client_3_6_9.jar')
+    //Logger
+    implementation 'com.orhanobut:logger:2.1.1'
+    //leakCanary 内存泄漏自检
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
 
-    api project (':IMKit')
-    implementation project (':IMLib')
 }

@@ -24,10 +24,6 @@ class HomeFragment : BaseFragment() {
 
     }
 
-
-
-
-
     companion object {
         fun getInstance(title: String): HomeFragment {
             val fragment = HomeFragment()

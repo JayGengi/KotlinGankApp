@@ -1,10 +1,11 @@
 package com.jaygengi.gank.base
 
-/**
- * @author Jake.Ho
- * created: 2017/10/25
- * desc:
- */
+ /**  
+   * @description: View基类
+   * @author JayGengi
+   * @date  2018/11/13 0013 上午 10:35
+   * @email jaygengiii@gmail.com
+   */
 interface IBaseView {
 
     fun showLoading()

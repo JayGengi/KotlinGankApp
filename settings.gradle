@@ -1,2 +1,2 @@
-include ':app', ':multiple-status-view', ':IMLib', ':IMKit'
+include ':app', ':multiple-status-view'
 
