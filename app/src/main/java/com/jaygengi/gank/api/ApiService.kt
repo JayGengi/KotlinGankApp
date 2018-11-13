@@ -1,8 +1,10 @@
 package com.jaygengi.gank.api
 
+import com.jaygengi.gank.mvp.model.bean.GirlsEntity
+import com.jaygengi.gank.net.BaseResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
  /**
    * @description: Api 接口
@@ -16,7 +18,9 @@ interface ApiService{
     /**
      * 首页精选
      */
-    @GET("v2/feed?")
-    fun getFirstHomeData(@Query("num") num:Int): Observable<Any>
+    @GET(UrlConstant.BASE_URL+"data/福利/{limit}/{page}")
+    fun getGirlsInfo(@Path("limit")limit:Int,
+                         @Path("page")page:Int): Observable<GirlsEntity>
 
-}
+
+ }

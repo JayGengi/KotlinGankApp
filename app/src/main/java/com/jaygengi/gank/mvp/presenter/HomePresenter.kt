@@ -2,6 +2,8 @@ package com.jaygengi.gank.mvp.presenter
 
 import com.jaygengi.gank.base.BasePresenter
 import com.jaygengi.gank.mvp.contract.HomeContract
+import com.jaygengi.gank.mvp.model.GirlsModel
+import com.jaygengi.gank.net.exception.ExceptionHandle
 
 
 /**
@@ -11,13 +13,37 @@ import com.jaygengi.gank.mvp.contract.HomeContract
  */
 
 class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter {
-    override fun requestHomeData(num: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+
+
+    private val girlsModel: GirlsModel by lazy {
+
+        GirlsModel()
+    }
+    override fun requestGirlInfo(limit: Int,page: Int) {
+        checkViewAttached()
+        mRootView?.showLoading()
+        val disposable = girlsModel.getGirlsInfo(limit,page)
+                .subscribe({ girlsList ->
+                    mRootView?.apply {
+                        dismissLoading()
+                        if(!girlsList.isError){
+                            showGirlInfo(girlsList)
+                        }else{
+                            showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
+                        }
+                    }
+                }, { t ->
+                    mRootView?.apply {
+                        //处理异常
+                        showError(ExceptionHandle.handleException(t),ExceptionHandle.errorCode)
+                    }
+
+                })
+
+        addSubscription(disposable)
     }
 
-    override fun loadMoreData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
 
 }

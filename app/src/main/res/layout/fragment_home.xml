@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
+
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/mRefreshLayout"
@@ -14,13 +16,7 @@
         app:srlEnableHeaderTranslationContent="false"
         app:srlPrimaryColor="@color/colorPrimary">
 
-        <com.scwang.smartrefresh.header.MaterialHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <com.classic.common.MultipleStatusView
                 android:id="@+id/multipleStatusView"
@@ -31,21 +27,14 @@
                 app:loadingView="@layout/layout_loading_view"
                 app:noNetworkView="@layout/layout_network_view">
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/mRecyclerView"
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:paddingBottom="@dimen/padding_tab_layout_bottom" />
+                    android:layout_height="300dp" />
 
             </com.classic.common.MultipleStatusView>
 
-            <com.qmuiteam.qmui.widget.QMUITopBar
-                android:id="@+id/topbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:contentInsetStart="0dp"/>
-        </FrameLayout>
+
 
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

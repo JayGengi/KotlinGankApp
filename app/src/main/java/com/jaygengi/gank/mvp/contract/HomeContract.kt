@@ -2,6 +2,8 @@ package com.jaygengi.gank.mvp.contract
 
 import com.jaygengi.gank.base.IBaseView
 import com.jaygengi.gank.base.IPresenter
+import com.jaygengi.gank.mvp.model.bean.GirlsEntity
+import com.jaygengi.gank.net.BaseResponse
 
 /**
  * @description: 契约类
@@ -15,14 +17,9 @@ interface HomeContract {
     interface View : IBaseView {
 
         /**
-         * 设置第一次请求的数据
+         * 显示福利轮播图
          */
-        fun<T> setHomeData(homeBean: T)
-
-        /**
-         * 设置加载更多的数据
-         */
-        fun setMoreData(itemList:ArrayList<Any>)
+        fun showGirlInfo(dataInfo: GirlsEntity)
 
         /**
          * 显示错误信息
@@ -35,14 +32,10 @@ interface HomeContract {
     interface Presenter : IPresenter<View> {
 
         /**
-         * 获取首页精选数据
+         * 获取福利轮播图
          */
-        fun requestHomeData(num: Int)
+        fun requestGirlInfo(limit: Int,page: Int)
 
-        /**
-         * 加载更多数据
-         */
-        fun loadMoreData()
 
 
     }

@@ -137,6 +137,11 @@ dependencies {
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
 
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    //circleimageview
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
     //今日头条屏幕适配
 //    implementation 'me.jessyan:autosize:1.0.6'
 }

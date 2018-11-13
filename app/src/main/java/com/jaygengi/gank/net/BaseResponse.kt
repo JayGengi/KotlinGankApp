@@ -1,9 +1,10 @@
 package com.jaygengi.gank.net
 
-/**
- * Created by xuhao on 2017/11/16.
- * 封装返回的数据
- */
-class BaseResponse<T>(val code :Int,
-                      val msg:String,
-                      val data:T)
+ /**  
+   * @description: 封装返回的数据
+   * @author JayGengi
+   * @date  2018/11/13 0013 下午 3:31
+   * @email jaygengiii@gmail.com
+   */
+class BaseResponse<T>(val error:Boolean,
+                      val results:T)

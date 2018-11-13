@@ -8,9 +8,5 @@ package com.jaygengi.gank.api
    */
 object UrlConstant{
 
-    const val BASE_URL = "http://baobab.kaiyanapp.com/api/"
-     /**
-      * 网络请求时长
-      */
-     const val HTTP_TIME = 5000
+    const val BASE_URL = "http://gank.io/api/"
 }
