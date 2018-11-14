@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import com.classic.common.MultipleStatusView
 import com.jaygengi.gank.MyApplication
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import io.reactivex.annotations.NonNull
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -29,6 +32,12 @@ abstract class BaseActivity : AppCompatActivity(),EasyPermissions.PermissionCall
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        QMUIStatusBarHelper.setStatusBarLightMode(this)
+        QMUIStatusBarHelper.translucent(this) // 沉浸式状态栏
+        //去掉TitleBar
+//        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        //设置全屏
+//        window.setFlags(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT)
         setContentView(layoutId())
         initData()
         initView()

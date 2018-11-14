@@ -9,6 +9,7 @@ import com.jaygengi.gank.mvp.presenter.HomePresenter
 import com.jaygengi.gank.net.exception.ErrorStatus
 import com.jaygengi.gank.showToast
 import com.jaygengi.gank.utils.img.GlideImageLoader
+import com.scwang.smartrefresh.header.MaterialHeader
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment(), HomeContract.View {
 
-
+    private var isRefresh = false
     private val mPresenter by lazy { HomePresenter() }
 
     private var mTitle: String? = null
@@ -32,26 +33,38 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 
     override fun lazyLoad() {
         //获取分类信息
-        mPresenter.requestGirlInfo(10,1)
+        mPresenter.requestGirlInfo(7,1)
     }
 
 
     override fun initView() {
         mPresenter.attachView(this)
         mLayoutStatusView = multipleStatusView
-
+        //内容跟随偏移
+        mRefreshLayout.setEnableHeaderTranslationContent(true)
+        mRefreshLayout.setOnRefreshListener {
+            isRefresh = true
+            //获取分类信息
+            mPresenter.requestGirlInfo(7,1)
+        }
+        //设置下拉刷新主题颜色
+        mRefreshLayout.setPrimaryColorsId(R.color.color_light_black, R.color.color_title_bg)
 
     }
     override fun showGirlInfo(dataInfo: GirlsEntity) {
 
         val bannerList = ArrayList<String>()
+        val bannertitle = ArrayList<String>()
         for(item : GirlsEntity.ResultsBean in dataInfo.results!!){
             bannerList.add(item.url!!)
+            bannertitle.add(item.who!!)
         }
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+        banner.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
         banner.setImageLoader(GlideImageLoader())
         //设置图片集合
         banner.setImages(bannerList)
+        //设置轮播要显示的标题和图片对应
+        banner.setBannerTitles(bannertitle)
         //设置banner动画效果
         banner.setBannerAnimation(Transformer.Default)
         //设置自动轮播，默认为true
@@ -77,11 +90,21 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         }
     }
 
+    /**
+     * 显示 Loading （下拉刷新的时候不需要显示 Loading）
+     */
     override fun showLoading() {
-        multipleStatusView?.showLoading()
+        if (!isRefresh) {
+            isRefresh = false
+            mLayoutStatusView?.showLoading()
+        }
     }
 
+    /**
+     * 隐藏 Loading
+     */
     override fun dismissLoading() {
+//        mRefreshLayout.finishRefresh()
         multipleStatusView?.showContent()
     }
 

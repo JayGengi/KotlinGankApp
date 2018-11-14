@@ -30,7 +30,13 @@
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="220dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="200dp"
+                    android:src="@drawable/index"/>
 
             </com.classic.common.MultipleStatusView>
 
