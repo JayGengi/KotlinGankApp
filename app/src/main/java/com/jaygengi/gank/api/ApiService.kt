@@ -1,6 +1,7 @@
 package com.jaygengi.gank.api
 
 import com.jaygengi.gank.mvp.model.bean.GirlsEntity
+import com.jaygengi.gank.mvp.model.bean.ToDayEntity
 import com.jaygengi.gank.net.BaseResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -21,6 +22,12 @@ interface ApiService{
     @GET(UrlConstant.BASE_URL+"data/福利/{limit}/{page}")
     fun getGirlsInfo(@Path("limit")limit:Int,
                          @Path("page")page:Int): Observable<GirlsEntity>
+
+     /**
+      * 获取福利数据信息
+      */
+     @GET(UrlConstant.BASE_URL+"today")
+     fun getToDayInfo(): Observable<ToDayEntity>
 
 
  }

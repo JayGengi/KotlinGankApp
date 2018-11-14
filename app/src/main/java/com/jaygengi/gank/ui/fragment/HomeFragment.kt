@@ -1,13 +1,16 @@
 package com.jaygengi.gank.ui.fragment
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseFragment
 import com.jaygengi.gank.mvp.contract.HomeContract
 import com.jaygengi.gank.mvp.model.bean.GirlsEntity
+import com.jaygengi.gank.mvp.model.bean.ToDayEntity
 import com.jaygengi.gank.mvp.presenter.HomePresenter
 import com.jaygengi.gank.net.exception.ErrorStatus
 import com.jaygengi.gank.showToast
+import com.jaygengi.gank.ui.adapter.ToDaySectionAdapter
 import com.jaygengi.gank.utils.img.GlideImageLoader
 import com.scwang.smartrefresh.header.MaterialHeader
 import com.youth.banner.BannerConfig
@@ -24,7 +27,12 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : BaseFragment(), HomeContract.View {
 
     private var isRefresh = false
+
     private val mPresenter by lazy { HomePresenter() }
+
+    private var mCategoryList = ArrayList<String>()
+
+    private val mAdapter by lazy { activity?.let { ToDaySectionAdapter( mCategoryList) } }
 
     private var mTitle: String? = null
 
@@ -34,18 +42,24 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     override fun lazyLoad() {
         //获取分类信息
         mPresenter.requestGirlInfo(7,1)
+        mPresenter.requestToDayInfo()
     }
-
-
     override fun initView() {
         mPresenter.attachView(this)
         mLayoutStatusView = multipleStatusView
+
+        recycler.apply {
+            setHasFixedSize(true)
+            isNestedScrollingEnabled = false
+            layoutManager = LinearLayoutManager(context)
+            adapter = mAdapter
+        }
+
         //内容跟随偏移
         mRefreshLayout.setEnableHeaderTranslationContent(true)
         mRefreshLayout.setOnRefreshListener {
             isRefresh = true
-            //获取分类信息
-            mPresenter.requestGirlInfo(7,1)
+            mPresenter.requestToDayInfo()
         }
         //设置下拉刷新主题颜色
         mRefreshLayout.setPrimaryColorsId(R.color.color_light_black, R.color.color_title_bg)
@@ -81,10 +95,22 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         }
     }
 
+    override fun showToDayInfo(todayInfo: ToDayEntity) {
+        showToast(todayInfo.toString())
+        mAdapter?.run {
+            if (todayInfo.category != null && todayInfo.category!!.isNotEmpty()) {
+                setNewData(todayInfo.category)
+            } else {
+                multipleStatusView?.showEmpty()
+            }
+        }
+    }
+
     override fun showError(msg: String, errorCode: Int) {
         showToast(msg)
         if (errorCode == ErrorStatus.NETWORK_ERROR) {
             multipleStatusView?.showNoNetwork()
+
         } else {
             multipleStatusView?.showError()
         }
@@ -104,8 +130,10 @@ class HomeFragment : BaseFragment(), HomeContract.View {
      * 隐藏 Loading
      */
     override fun dismissLoading() {
-//        mRefreshLayout.finishRefresh()
         multipleStatusView?.showContent()
+        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+            mRefreshLayout.finishRefresh()
+        }
     }
 
     override fun onDestroy() {

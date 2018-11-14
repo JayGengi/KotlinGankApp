@@ -3,6 +3,7 @@ package com.jaygengi.gank.mvp.presenter
 import com.jaygengi.gank.base.BasePresenter
 import com.jaygengi.gank.mvp.contract.HomeContract
 import com.jaygengi.gank.mvp.model.GirlsModel
+import com.jaygengi.gank.mvp.model.ToDayModel
 import com.jaygengi.gank.net.exception.ExceptionHandle
 
 
@@ -20,6 +21,11 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
 
         GirlsModel()
     }
+
+    private val todayModel: ToDayModel by lazy {
+
+        ToDayModel()
+    }
     override fun requestGirlInfo(limit: Int,page: Int) {
         checkViewAttached()
         mRootView?.showLoading()
@@ -29,6 +35,30 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
                         dismissLoading()
                         if(!girlsList.isError){
                             showGirlInfo(girlsList)
+                        }else{
+                            showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
+                        }
+                    }
+                }, { t ->
+                    mRootView?.apply {
+                        //处理异常
+                        showError(ExceptionHandle.handleException(t),ExceptionHandle.errorCode)
+                    }
+
+                })
+
+        addSubscription(disposable)
+    }
+
+    override fun requestToDayInfo() {
+        checkViewAttached()
+        mRootView?.showLoading()
+        val disposable = todayModel.getToDayInfo()
+                .subscribe({ todayList ->
+                    mRootView?.apply {
+                        dismissLoading()
+                        if(!todayList.isError){
+                            showToDayInfo(todayList)
                         }else{
                             showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
                         }

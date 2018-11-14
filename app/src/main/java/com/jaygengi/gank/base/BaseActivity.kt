@@ -1,14 +1,9 @@
 package com.jaygengi.gank.base
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.Toast
 import com.classic.common.MultipleStatusView
 import com.jaygengi.gank.MyApplication
@@ -18,7 +13,7 @@ import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
 
- /**
+/**
    * @description: BaseActivity基类
    * @author JayGengi
    * @date  2018/10/29 0029 上午 11:57

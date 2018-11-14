@@ -22,7 +22,14 @@ import pub.devrel.easypermissions.EasyPermissions
    */
 
  abstract class BaseFragment: Fragment(),EasyPermissions.PermissionCallbacks{
-
+     /**
+      * 当前页数
+      */
+     var CURRENT_PAGE = 1
+     /**
+      * 每页容量- 每页有多少条记录
+      */
+     val PAGE_CAPACITY = 10
     /**
      * 视图是否加载完毕
      */
