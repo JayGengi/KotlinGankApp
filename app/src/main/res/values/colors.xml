@@ -18,12 +18,11 @@
     <color name="app_color_theme_7">#00b0ff</color> <!-- Blue Jeans -->
     <color name="app_color_theme_8">#AC8FEF</color> <!-- Lavender -->
     <color name="app_color_theme_9">#EE85C1</color> <!-- Pink Rose -->
-
+    <color name="md_blue_500">#2196F3</color>
     <color name="color_pink">#ff4081</color>
     <color name="color_orange">#dd2c00</color>
     <color name="color_blue_dark">#ee447AA4</color>
-
-
+    <color name="md_grey_700">#616161</color>
 
 
     <!-- title 半透明背景颜色 -->

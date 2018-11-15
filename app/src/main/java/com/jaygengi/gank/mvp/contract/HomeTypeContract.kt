@@ -13,29 +13,28 @@ import com.jaygengi.gank.net.BaseResponse
  * @email jaygengiii@gmail.com
  */
 
-interface HomeContract {
+interface HomeTypeContract {
 
     interface View : IBaseView {
 
         /**
-         * 显示福利轮播图
+         * 获取最新一天的干货
          */
-        fun showGirlInfo(dataInfo: GirlsEntity)
-
-
+        fun showToDayInfo(todayInfo: ToDayEntity)
         /**
          * 显示错误信息
          */
         fun showError(msg: String,errorCode:Int)
+
 
     }
 
     interface Presenter : IPresenter<View> {
 
         /**
-         * 获取福利轮播图
+         * 获取最新一天的干货
          */
-        fun requestGirlInfo(limit: Int,page: Int)
+        fun requestToDayInfo()
 
 
     }

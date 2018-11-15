@@ -1,18 +1,19 @@
 package com.jaygengi.gank.ui.fragment
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v4.app.Fragment
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseFragment
 import com.jaygengi.gank.mvp.contract.HomeContract
 import com.jaygengi.gank.mvp.model.bean.GirlsEntity
 import com.jaygengi.gank.mvp.model.bean.ToDayEntity
 import com.jaygengi.gank.mvp.presenter.HomePresenter
-import com.jaygengi.gank.net.exception.ErrorStatus
 import com.jaygengi.gank.showToast
+import com.jaygengi.gank.ui.adapter.HomePageAdapter
 import com.jaygengi.gank.ui.adapter.ToDaySectionAdapter
+import com.jaygengi.gank.ui.fragment.home.*
 import com.jaygengi.gank.utils.img.GlideImageLoader
-import com.scwang.smartrefresh.header.MaterialHeader
+import com.jaygengi.gank.widget.SlidingTabLayout
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -36,33 +37,57 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 
     private var mTitle: String? = null
 
+    private val fragments = ArrayList<Fragment>()
+
+    private val titles = ArrayList<String>()
 
     override fun getLayoutId(): Int = R.layout.fragment_home
 
     override fun lazyLoad() {
         //获取分类信息
         mPresenter.requestGirlInfo(7,1)
-        mPresenter.requestToDayInfo()
     }
     override fun initView() {
         mPresenter.attachView(this)
-        mLayoutStatusView = multipleStatusView
 
-        recycler.apply {
-            setHasFixedSize(true)
-            isNestedScrollingEnabled = false
-            layoutManager = LinearLayoutManager(context)
-            adapter = mAdapter
-        }
+        sliding_tabs.setCustomTabColorizer(object : SlidingTabLayout.TabColorizer {
+            override fun getIndicatorColor(position: Int): Int {
+                return R.color.color_black
+            }
 
-        //内容跟随偏移
-        mRefreshLayout.setEnableHeaderTranslationContent(true)
-        mRefreshLayout.setOnRefreshListener {
-            isRefresh = true
-            mPresenter.requestToDayInfo()
+            override fun getDividerColor(position: Int): Int {
+                return R.color.color_white
+            }
+        })
+        fragments.add(WelfareFragment())
+        fragments.add(AndroidFragment())
+        fragments.add(AppFragment())
+        fragments.add(IOSFragment())
+        fragments.add(RestFragment())
+        fragments.add(WebFragment())
+        fragments.add(ExpandFragment())
+        fragments.add(RecommendFragment())
+
+        titles.add("福利")
+        titles.add("Android")
+        titles.add("App")
+        titles.add("IOS")
+        titles.add("休息视频")
+        titles.add("前端")
+        titles.add("拓展资源")
+        titles.add("推荐")
+        viewpager.adapter = HomePageAdapter(childFragmentManager).apply {
+            setData(fragments,titles)
         }
-        //设置下拉刷新主题颜色
-        mRefreshLayout.setPrimaryColorsId(R.color.color_light_black, R.color.color_title_bg)
+        viewpager.offscreenPageLimit = 4
+
+        sliding_tabs.setViewPager(viewpager)
+//        recycler.apply {
+//            setHasFixedSize(true)
+//            isNestedScrollingEnabled = false
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = mAdapter
+//        }
 
     }
     override fun showGirlInfo(dataInfo: GirlsEntity) {
@@ -95,45 +120,19 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         }
     }
 
-    override fun showToDayInfo(todayInfo: ToDayEntity) {
-        mAdapter?.run {
-            if (todayInfo.category != null && todayInfo.category!!.isNotEmpty()) {
-                setToDayTypeInfo(todayInfo.results)
-                setNewData(todayInfo.category)
-            } else {
-                multipleStatusView?.showEmpty()
-            }
-        }
-    }
-
     override fun showError(msg: String, errorCode: Int) {
         showToast(msg)
-        if (errorCode == ErrorStatus.NETWORK_ERROR) {
-            multipleStatusView?.showNoNetwork()
-
-        } else {
-            multipleStatusView?.showError()
-        }
     }
 
     /**
      * 显示 Loading （下拉刷新的时候不需要显示 Loading）
      */
     override fun showLoading() {
-        if (!isRefresh) {
-            isRefresh = false
-            mLayoutStatusView?.showLoading()
-        }
     }
-
     /**
      * 隐藏 Loading
      */
     override fun dismissLoading() {
-        multipleStatusView?.showContent()
-        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
-            mRefreshLayout.finishRefresh()
-        }
     }
 
     override fun onDestroy() {
