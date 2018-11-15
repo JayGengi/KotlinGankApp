@@ -96,9 +96,9 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     }
 
     override fun showToDayInfo(todayInfo: ToDayEntity) {
-        showToast(todayInfo.toString())
         mAdapter?.run {
             if (todayInfo.category != null && todayInfo.category!!.isNotEmpty()) {
+                setToDayTypeInfo(todayInfo.results)
                 setNewData(todayInfo.category)
             } else {
                 multipleStatusView?.showEmpty()
