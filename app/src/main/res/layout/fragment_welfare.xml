@@ -19,10 +19,7 @@
             android:id="@+id/mRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
-            app:srlAccentColor="@android:color/white"
-            app:srlEnableHeaderTranslationContent="false"
-            app:srlPrimaryColor="@color/colorPrimary">
+            >
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler"

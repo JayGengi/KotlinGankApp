@@ -17,10 +17,13 @@ interface HomeContract {
 
     interface View : IBaseView {
         /**
+         * 显示福利轮播图
+         */
+        fun showGirlInfo(dataInfo: GirlsEntity)
+        /**
          * 获取最新一天的干货
          */
         fun showToDayInfo(todayInfo: ToDayEntity)
-
         /**
          * 显示错误信息
          */
@@ -30,7 +33,10 @@ interface HomeContract {
 
     interface Presenter : IPresenter<View> {
 
-
+        /**
+         * 获取福利轮播图
+         */
+        fun requestGirlInfo()
         /**
          * 获取最新一天的干货
          */

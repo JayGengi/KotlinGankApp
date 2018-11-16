@@ -141,7 +141,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     //circleimageview
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-
+    //WebView
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
     //今日头条屏幕适配
 //    implementation 'me.jessyan:autosize:1.0.6'
 }

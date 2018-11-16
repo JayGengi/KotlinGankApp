@@ -11,6 +11,7 @@ import com.jaygengi.gank.mvp.model.bean.CategoryEntity
 import com.jaygengi.gank.mvp.presenter.CategoryPresenter
 import com.jaygengi.gank.net.exception.ErrorStatus
 import com.jaygengi.gank.showToast
+import com.jaygengi.gank.ui.activity.WebViewActivity
 import com.jaygengi.gank.ui.adapter.ToDayAndroidAdapter
 import kotlinx.android.synthetic.main.fragment_home_common_type.*
 
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home_common_type.*
    */
 
 class CategoryFragment : BaseFragment(), CategoryContract.View {
-
+    private var isFirstLoad = false
     //category 后面可接受参数 all | Android | iOS | 休息视频 | 福利 | 拓展资源 | 前端 | 瞎推荐 | App
     lateinit var key: String
 
@@ -37,6 +38,7 @@ class CategoryFragment : BaseFragment(), CategoryContract.View {
     override fun getLayoutId(): Int = R.layout.fragment_home_common_type
 
     override fun lazyLoad() {
+        isFirstLoad = true
         key = arguments!!.getString("key")
         loadData()
     }
@@ -59,22 +61,27 @@ class CategoryFragment : BaseFragment(), CategoryContract.View {
         }
         mAdapter!!.setOnItemClickListener { adapter, _, position ->
             val item :CategoryEntity.ResultsBean = adapter.getItem(position) as CategoryEntity.ResultsBean
-            val intent = Intent()
-            intent.action = "android.intent.action.VIEW"
-            val contentUrl = Uri.parse(item.url)
-            intent.data = contentUrl
+            val intent = Intent(context, WebViewActivity::class.java)
+            intent.putExtra("title", item.desc)
+            intent.putExtra("url", item.url)
             startActivity(intent)
         }
 
 
     }
     private fun loadData(){
+
         mPresenter.requestCategoryInfo(key,PAGE_CAPACITY,CURRENT_PAGE)
     }
     override fun getCategoryInfo(todayInfo: CategoryEntity) {
+        multipleStatusView?.showContent()
         mAdapter?.run {
             if (todayInfo.results != null && todayInfo.results!!.isNotEmpty()) {
-                setNewData(todayInfo.results)
+                if (CURRENT_PAGE == 1) {
+                    androidList.clear()
+                }
+                androidList.addAll(todayInfo.results!!)
+                setNewData(androidList)
             } else {
                 multipleStatusView?.showEmpty()
             }
@@ -91,19 +98,23 @@ class CategoryFragment : BaseFragment(), CategoryContract.View {
     }
 
     /**
-     * 显示 Loading
+     * 显示 Loading （下拉刷新的时候不需要显示 Loading）
      */
     override fun showLoading() {
-        mLayoutStatusView?.showLoading()
+        if(isFirstLoad) {
+            isFirstLoad = false
+            mLayoutStatusView?.showLoading()
+        }
     }
-
     /**
      * 隐藏 Loading
      */
     override fun dismissLoading() {
-        multipleStatusView?.showContent()
-        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+        if(mRefreshLayout!=null && mRefreshLayout.isRefreshing){
             mRefreshLayout.finishRefresh()
+        }
+        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+            mRefreshLayout.finishLoadMore()
         }
     }
 

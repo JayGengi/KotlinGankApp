@@ -1,23 +1,13 @@
 package com.jaygengi.gank.ui.fragment.home
 
-import android.content.Intent
-import android.net.Uri
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseFragment
 import com.jaygengi.gank.mvp.contract.GirlsContract
-import com.jaygengi.gank.mvp.model.bean.CategoryEntity
 import com.jaygengi.gank.mvp.model.bean.GirlsEntity
 import com.jaygengi.gank.mvp.presenter.GirlsPresenter
 import com.jaygengi.gank.net.exception.ErrorStatus
-import com.jaygengi.gank.showToast
 import com.jaygengi.gank.ui.adapter.GirlsAdapter
-import com.jaygengi.gank.ui.adapter.ToDayAndroidAdapter
-import com.jaygengi.gank.utils.img.GlideImageLoader
-import com.youth.banner.BannerConfig
-import com.youth.banner.Transformer
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_common_type.*
 
 /**
@@ -28,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_home_common_type.*
    */
 
 class WelfareFragment : BaseFragment(), GirlsContract.View {
+    private var isRefresh = false
 
     private val mPresenter by lazy { GirlsPresenter() }
     private var grilsList = ArrayList<GirlsEntity.ResultsBean>()
@@ -39,6 +30,11 @@ class WelfareFragment : BaseFragment(), GirlsContract.View {
         mPresenter.attachView(this)
         mLayoutStatusView = multipleStatusView
         mRefreshLayout.setOnRefreshListener {
+            CURRENT_PAGE =1
+            loadData()
+        }
+        mRefreshLayout.setOnLoadMoreListener {
+            CURRENT_PAGE++
             loadData()
         }
         recycler.apply {
@@ -53,15 +49,22 @@ class WelfareFragment : BaseFragment(), GirlsContract.View {
     }
 
     override fun lazyLoad() {
+        isRefresh = true
         loadData()
     }
     private fun loadData(){
+
         mPresenter.requestGirlInfo(PAGE_CAPACITY,CURRENT_PAGE)
     }
     override fun showGirlInfo(dataInfo: GirlsEntity) {
+        multipleStatusView?.showContent()
         mAdapter?.run {
             if (dataInfo.results != null && dataInfo.results!!.isNotEmpty()) {
-                setNewData(dataInfo.results)
+                if (CURRENT_PAGE == 1) {
+                    grilsList.clear()
+                }
+                grilsList.addAll(dataInfo.results!!)
+                setNewData(grilsList)
             } else {
                 multipleStatusView?.showEmpty()
             }
@@ -81,15 +84,20 @@ class WelfareFragment : BaseFragment(), GirlsContract.View {
      * 显示 Loading （下拉刷新的时候不需要显示 Loading）
      */
     override fun showLoading() {
-        mLayoutStatusView?.showLoading()
+        if(isRefresh) {
+            isRefresh = false
+            mLayoutStatusView?.showLoading()
+        }
     }
     /**
      * 隐藏 Loading
      */
     override fun dismissLoading() {
-        multipleStatusView?.showContent()
-        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+        if(mRefreshLayout!=null && mRefreshLayout.isRefreshing){
             mRefreshLayout.finishRefresh()
+        }
+        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+            mRefreshLayout.finishLoadMore()
         }
     }
 

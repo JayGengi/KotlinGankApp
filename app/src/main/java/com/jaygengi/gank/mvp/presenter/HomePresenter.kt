@@ -16,12 +16,37 @@ import com.jaygengi.gank.net.exception.ExceptionHandle
 
 class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter {
 
+     private val girlsModel: GirlsModel by lazy {
 
+         GirlsModel()
+     }
     private val todayModel: ToDayModel by lazy {
 
         ToDayModel()
     }
+     override fun requestGirlInfo() {
+         checkViewAttached()
+         mRootView?.showLoading()
+         val disposable = girlsModel.getGirlsInfo(1,1)
+                 .subscribe({ girlsList ->
+                     mRootView?.apply {
+                         dismissLoading()
+                         if(!girlsList.isError){
+                             showGirlInfo(girlsList)
+                         }else{
+                             showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
+                         }
+                     }
+                 }, { t ->
+                     mRootView?.apply {
+                         //处理异常
+                         showError(ExceptionHandle.handleException(t),ExceptionHandle.errorCode)
+                     }
 
+                 })
+
+         addSubscription(disposable)
+     }
     override fun requestToDayInfo() {
         checkViewAttached()
         mRootView?.showLoading()

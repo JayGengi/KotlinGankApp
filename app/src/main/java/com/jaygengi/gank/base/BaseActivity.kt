@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import com.classic.common.MultipleStatusView
 import com.jaygengi.gank.MyApplication
@@ -27,12 +28,9 @@ abstract class BaseActivity : AppCompatActivity(),EasyPermissions.PermissionCall
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        QMUIStatusBarHelper.setStatusBarLightMode(this)
+
         QMUIStatusBarHelper.translucent(this) // 沉浸式状态栏
-        //去掉TitleBar
-//        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        //设置全屏
-//        window.setFlags(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT)
+        QMUIStatusBarHelper.setStatusBarLightMode(this)
         setContentView(layoutId())
         initData()
         initView()
