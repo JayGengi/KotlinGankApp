@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.qmuiteam.qmui.widget.QMUIAppBarLayout
-        android:id="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:fitsSystemWindows="true">
 
         <com.qmuiteam.qmui.widget.QMUICollapsingTopBarLayout
-            android:id="@+id/collapsing_topbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="?attr/qmui_topbar_height"
@@ -23,7 +21,6 @@
             app:qmui_statusBarScrim="?attr/qmui_config_color_blue">
 
             <ImageView
-                android:id="@+id/head_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="false"
@@ -33,7 +30,6 @@
                 tools:ignore="MissingPrefix" />
 
             <com.qmuiteam.qmui.widget.QMUITopBar
-                android:id="@+id/topbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/qmui_topbar_height"
                 android:fitsSystemWindows="true"
@@ -45,7 +41,6 @@
 
 
     <com.classic.common.MultipleStatusView
-        android:id="@+id/multipleStatusView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -54,7 +49,6 @@
         app:loadingView="@layout/layout_loading_view"
         app:noNetworkView="@layout/layout_network_view">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
