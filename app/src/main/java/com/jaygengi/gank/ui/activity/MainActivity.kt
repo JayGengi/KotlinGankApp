@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
     private val mTabEntities = ArrayList<CustomTabEntity>()
 
     private var mHomeFragment: HomeFragment? = null
-    private var mHotFragment: MessageFragment? = null
+    private var mHotFragment: GankTypeFragment? = null
     private var mMineFragment: MineFragment? = null
 
     //默认为0
@@ -95,7 +95,7 @@ class MainActivity : BaseActivity() {
             1  //热门
             -> mHotFragment?.let {
                 transaction.show(it)
-            } ?: MessageFragment.getInstance(mTitles[position]).let {
+            } ?: GankTypeFragment.getInstance(mTitles[position]).let {
                 mHotFragment = it
                 transaction.add(R.id.fl_container, it, "hot") }
             2 //我的

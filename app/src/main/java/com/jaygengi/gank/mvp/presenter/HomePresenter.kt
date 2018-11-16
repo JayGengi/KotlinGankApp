@@ -7,30 +7,30 @@ import com.jaygengi.gank.mvp.model.ToDayModel
 import com.jaygengi.gank.net.exception.ExceptionHandle
 
 
-/**
- * Created by xuhao on 2017/11/8.
- * 首页精选的 Presenter
- * (数据是 Banner 数据和一页数据组合而成的 HomeBean,查看接口然后在分析就明白了)
- */
+ /**
+   * @description: 最新一天的干货
+   * @author JayGengi
+   * @date  2018/11/16 0016 上午 11:29
+   * @email jaygengiii@gmail.com
+   */
 
 class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter {
 
 
+    private val todayModel: ToDayModel by lazy {
 
-    private val girlsModel: GirlsModel by lazy {
-
-        GirlsModel()
+        ToDayModel()
     }
 
-    override fun requestGirlInfo(limit: Int,page: Int) {
+    override fun requestToDayInfo() {
         checkViewAttached()
         mRootView?.showLoading()
-        val disposable = girlsModel.getGirlsInfo(limit,page)
-                .subscribe({ girlsList ->
+        val disposable = todayModel.getToDayInfo()
+                .subscribe({ todayList ->
                     mRootView?.apply {
                         dismissLoading()
-                        if(!girlsList.isError){
-                            showGirlInfo(girlsList)
+                        if(!todayList.isError){
+                            showToDayInfo(todayList)
                         }else{
                             showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
                         }
@@ -45,7 +45,6 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
 
         addSubscription(disposable)
     }
-
 
 
 }

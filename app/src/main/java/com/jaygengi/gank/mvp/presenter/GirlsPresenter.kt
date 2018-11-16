@@ -1,8 +1,8 @@
 package com.jaygengi.gank.mvp.presenter
 
 import com.jaygengi.gank.base.BasePresenter
-import com.jaygengi.gank.mvp.contract.HomeTypeContract
-import com.jaygengi.gank.mvp.model.ToDayModel
+import com.jaygengi.gank.mvp.contract.GirlsContract
+import com.jaygengi.gank.mvp.model.GirlsModel
 import com.jaygengi.gank.net.exception.ExceptionHandle
 
 
@@ -12,22 +12,24 @@ import com.jaygengi.gank.net.exception.ExceptionHandle
  * (数据是 Banner 数据和一页数据组合而成的 HomeBean,查看接口然后在分析就明白了)
  */
 
-class HomeTypePresenter : BasePresenter<HomeTypeContract.View>(), HomeTypeContract.Presenter {
+class GirlsPresenter : BasePresenter<GirlsContract.View>(), GirlsContract.Presenter {
 
 
-    private val todayModel: ToDayModel by lazy {
 
-        ToDayModel()
+    private val girlsModel: GirlsModel by lazy {
+
+        GirlsModel()
     }
-    override fun requestToDayInfo() {
+
+    override fun requestGirlInfo(limit: Int,page: Int) {
         checkViewAttached()
         mRootView?.showLoading()
-        val disposable = todayModel.getToDayInfo()
-                .subscribe({ todayList ->
+        val disposable = girlsModel.getGirlsInfo(limit,page)
+                .subscribe({ girlsList ->
                     mRootView?.apply {
                         dismissLoading()
-                        if(!todayList.isError){
-                            showToDayInfo(todayList)
+                        if(!girlsList.isError){
+                            showGirlInfo(girlsList)
                         }else{
                             showError(ExceptionHandle.errorMsg,ExceptionHandle.errorCode)
                         }
@@ -42,7 +44,6 @@ class HomeTypePresenter : BasePresenter<HomeTypeContract.View>(), HomeTypeContra
 
         addSubscription(disposable)
     }
-
 
 
 }

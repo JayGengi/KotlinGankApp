@@ -11,7 +11,7 @@
         android:id="@+id/img"
         android:layout_marginStart="@dimen/dp_10"
         android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:scaleType="centerCrop"
         />
 </RelativeLayout>
