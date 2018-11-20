@@ -6,10 +6,10 @@ apply plugin: 'kotlin-kapt'  //kapt3插件
 android {
     signingConfigs {
 //        config {
-//            keyAlias 'ktmp'
-//            keyPassword 'ktmp123456'
-//            storeFile file('../ktmp.jks')
-//            storePassword 'ktmp123456'
+//            keyAlias 'kotlingank'
+//            keyPassword '123456'
+//            storeFile file('../kotlingank.jks')
+//            storePassword '123456'
 //        }
     }
     compileSdkVersion 27

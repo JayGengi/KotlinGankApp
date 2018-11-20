@@ -1,12 +1,15 @@
 package com.jaygengi.gank.ui.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
+import com.jaygengi.gank.MyApplication
 import com.jaygengi.gank.R
 import com.jaygengi.gank.base.BaseActivity
+import com.jaygengi.gank.utils.AppUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 
 
@@ -30,6 +33,7 @@ class SplashActivity : BaseActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initView() {
 
         //渐变展示启动屏
@@ -44,7 +48,7 @@ class SplashActivity : BaseActivity() {
             override fun onAnimationStart(animation: Animation) {}
 
         })
-
+        tv_version_name.text = "v${AppUtils.getVerName(MyApplication.context)}"
         if (alphaAnimation != null) {
             iv_web_icon.startAnimation(alphaAnimation)
         }
