@@ -29,7 +29,7 @@
     <color name="color_title_bg">#CCFFFFFF</color>
     <!-- 默认背景色 -->
     <color name="backgroundColor">#EEEEEE</color>
-
+    <color name="md_grey_300">#E0E0E0</color>
     <!-- white -->
     <color name="color_white">#FFFFFF</color>
     <color name="color_black">#000000</color>

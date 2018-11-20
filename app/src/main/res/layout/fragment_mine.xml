@@ -6,171 +6,265 @@
     android:background="@color/color_title_bg"
     android:orientation="vertical">
 
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_title_bg">
-
-    <RelativeLayout
-        android:id="@+id/rel_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/iv_about"
-            android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:src="@mipmap/ic_about" />
-
-    </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-
-
     <LinearLayout
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/iv_avatar"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/img_avatar"
-            />
+            android:src="@mipmap/img_jaygengi_avatar" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_nickname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/nickname"
-        android:textColor="@color/color_black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_view_homepage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/padding_common_d"
-        android:paddingBottom="@dimen/padding_common_d"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/view_homepage"
-        android:textColor="@color/color_gray"
-        android:textSize="@dimen/textSize_small" />
-
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp">
+        android:id="@+id/github_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/nickname"
+            android:textColor="@color/color_black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_collection"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:drawablePadding="7dp"
-                android:drawableStart="@mipmap/ic_action_collection"
-                android:gravity="center"
-                android:text="@string/collection" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/color_gray" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
-                android:drawablePadding="7dp"
-                android:drawableStart="@mipmap/ic_action_comment"
-                android:gravity="center"
-                android:text="@string/comment" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_view_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="@dimen/padding_common_d"
+            android:paddingBottom="@dimen/padding_common_d"
+            android:text="@string/view_homepage"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/textSize_small" />
     </LinearLayout>
-
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/color_gray" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@color/color_gray"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            android:text="感谢API和kotlinMvp框架作者"/>
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:stretchColumns="0,1"
+            android:divider="@drawable/line_h"
+            android:showDividers="beginning|middle|end"
             android:orientation="vertical">
-
-
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/gank_url"
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="Gank.io"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/demo_url"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="Kotlin+MVP"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
             <TextView
-                android:id="@+id/tv_mine_message"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center|center_horizontal"
-                android:text="@string/mine_message"
-                android:textSize="14sp" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@color/color_gray"
+                android:textColor="@color/color_white"
+                android:textSize="15sp"
+                android:text="主要的第三方引用"/>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="UI"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/qmui_url"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="QMUI"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle">
+                <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="网络库"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/retrofit_url"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_marginStart="10dp"
+                    android:text="Retrofit"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="[很赞的适配器封装]"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/adapter_url"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="BaseQuickAdapter"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle">
+                <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="下拉刷新"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/smartRefreshLayout_url"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_marginStart="10dp"
+                    android:text="smartRefreshLayout"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle">
+                <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="多状态View"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/multiple_status_view_url"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_marginStart="10dp"
+                    android:text="multiple-status-view"
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+            <TableRow
+                android:divider="@drawable/line_h"
+                android:showDividers="middle">
+                <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="..."
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+                <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_marginStart="10dp"
+                    android:text="..."
+                    android:textColor="@color/md_blue_500"
+                    android:textSize="14sp"
+                    android:gravity="start"/>
+            </TableRow>
+        </TableLayout>
 
-            <TextView
-                android:id="@+id/tv_mine_attention"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center|center_horizontal"
-                android:text="@string/mine_attention"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_mine_cache"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center|center_horizontal"
-                android:text="@string/mine_cache"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_watch_history"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center|center_horizontal"
-                android:text="@string/view_history"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_feedback"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center|center_horizontal"
-                android:text="@string/feedback"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-
-    </android.support.v4.widget.NestedScrollView>
-
-
+    </LinearLayout>
 </LinearLayout>

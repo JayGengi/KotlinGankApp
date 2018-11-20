@@ -17,7 +17,7 @@ import java.util.*
  */
 class ToDayAndroidAdapter(data: List<CategoryEntity.ResultsBean>?)
     : BaseQuickAdapter<CategoryEntity.ResultsBean, BaseViewHolder>
-        (R.layout.item_category_info, data) {
+        (R.layout.item_category, data) {
 
     @SuppressLint("SimpleDateFormat")
     override fun convert(helper: BaseViewHolder, item: CategoryEntity.ResultsBean) {
@@ -36,27 +36,3 @@ class ToDayAndroidAdapter(data: List<CategoryEntity.ResultsBean>?)
         }
     }
 }
-//判断是否有图片
-//if (null != item.images) {
-//    if (item.images!!.isNotEmpty()) {
-//        wrapLinear.visibility = View.VISIBLE
-//        if (wrapLinear.childCount > 0) {
-//            wrapLinear.removeAllViews()
-//        }
-//        for (y in 0 until item.images!!.size) {
-//            val mview = LayoutInflater.from(mContext).inflate(R.layout.item_home_today_img, null)
-//            //图片
-//            val img: ImageView = mview.findViewById(R.id.img)
-//            Glide.with(mContext)
-//                    .load(item.images!![y])
-//                    .into(img)
-//            wrapLinear.addView(mview)
-//            if(y ==3){
-//                break
-//            }
-//        }
-//    }
-//
-//} else {
-//    wrapLinear.visibility = View.GONE
-//}
