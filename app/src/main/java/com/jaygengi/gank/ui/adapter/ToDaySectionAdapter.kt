@@ -94,8 +94,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.App!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.App!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -139,8 +139,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.iOS!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.iOS!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -184,8 +184,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.休息视频!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.休息视频!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -229,8 +229,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.前端!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.前端!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -274,8 +274,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.拓展资源!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.拓展资源!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -319,8 +319,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.瞎推荐!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.瞎推荐!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片
@@ -364,8 +364,8 @@ class ToDaySectionAdapter(private val context:Context,data: List<String>?)
                     val itemLayout: RelativeLayout = view.findViewById(R.id.list_item)
                     itemLayout.setOnClickListener {
                         val intent = Intent(context, WebViewActivity::class.java)
-                        intent.putExtra("title", toDayTypeInfo!!.Android!![i].desc)
-                        intent.putExtra("url", toDayTypeInfo!!.Android!![i].url)
+                        intent.putExtra("title", toDayTypeInfo!!.福利!![i].desc)
+                        intent.putExtra("url", toDayTypeInfo!!.福利!![i].url)
                         mContext.startActivity(intent)
                     }
                     //判断是否有图片

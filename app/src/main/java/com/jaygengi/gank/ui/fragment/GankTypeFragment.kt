@@ -36,9 +36,9 @@ class GankTypeFragment : BaseFragment(){
     override fun lazyLoad() {
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint("ResourceAsColor", "SetTextI18n")
     override fun initView() {
-        topbar.setTitle("GankType").setTextColor(R.color.color_black)
+        title.text ="GankType"
         fragments.add(WelfareFragment())
         fragments.add(CategoryFragment.newInstance("Android"))
         fragments.add(CategoryFragment.newInstance("App"))

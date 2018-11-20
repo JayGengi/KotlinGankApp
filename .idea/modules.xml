@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyKotlinMvp.iml" filepath="$PROJECT_DIR$/MyKotlinMvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KotlinGankApp.iml" filepath="$PROJECT_DIR$/KotlinGankApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/multiple-status-view/multiple-status-view.iml" filepath="$PROJECT_DIR$/multiple-status-view/multiple-status-view.iml" />
     </modules>

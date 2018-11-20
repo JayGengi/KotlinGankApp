@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
     <!-- Base application theme. -->
@@ -21,9 +21,11 @@
         <item name="qmui_topbar_left_back_drawable_id">@drawable/ic_left</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="qmui_topbar_text_btn_color_state_list">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">false</item>
+
     </style>
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
     </style>
 

@@ -1,9 +1,11 @@
 package com.jaygengi.gank.ui.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.bumptech.glide.Glide
@@ -17,6 +19,9 @@ import com.jaygengi.gank.net.exception.ErrorStatus
 import com.jaygengi.gank.ui.activity.SearchActivity
 import com.jaygengi.gank.ui.adapter.ToDaySectionAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
+import android.support.v7.widget.RecyclerView
+
+
 
 /**
    * @description: 首页
@@ -36,27 +41,47 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 
     private var mTitle: String? = null
 
+
+    private val categoryList = ArrayList<String>()
     override fun getLayoutId(): Int = R.layout.fragment_home
 
     override fun lazyLoad() {
         loadData()
     }
+    @SuppressLint("ResourceAsColor")
     override fun initView() {
+
+        collapsing_topbar_layout.setCollapsedTitleTextColor(R.color.color_black)
         topbar.addRightImageButton(R.mipmap.ic_action_search_black,R.id.right).setOnClickListener {
             openSearchActivity(topbar.findViewById(R.id.right))
         }
-//        collapsing_topbar_layout.title = "JayGengi"
+
         mPresenter.attachView(this)
         mLayoutStatusView = multipleStatusView
-//        mRefreshLayout.setOnRefreshListener {
-//            loadData()
-//        }
         recyclerView.apply {
             setHasFixedSize(true)
 //            isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(context)
             adapter = mAdapter
         }
+
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+
+                super.onScrolled(recyclerView, dx, dy)
+
+                val l = recyclerView!!.layoutManager as LinearLayoutManager
+
+                val adapterNowPos = l.findFirstVisibleItemPosition()
+
+                collapsing_topbar_layout.title = categoryList[adapterNowPos]
+
+            }
+
+        })
+
     }
     private fun loadData(){
         mPresenter.requestGirlInfo()
@@ -68,7 +93,11 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     }
     override fun showToDayInfo(todayInfo: ToDayEntity) {
         mAdapter?.run {
+
+
             if (todayInfo.category != null && todayInfo.results!= null) {
+                categoryList.clear()
+                categoryList.addAll(todayInfo.category!!)
                 setNewData(todayInfo.category)
                 setToDayTypeInfo(todayInfo.results)
             } else {

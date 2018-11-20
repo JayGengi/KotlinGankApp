@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import com.classic.common.MultipleStatusView
 import com.jaygengi.gank.MyApplication
@@ -28,7 +29,6 @@ abstract class BaseActivity : AppCompatActivity(),EasyPermissions.PermissionCall
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         QMUIStatusBarHelper.translucent(this) // 沉浸式状态栏
         QMUIStatusBarHelper.setStatusBarLightMode(this)
         setContentView(layoutId())

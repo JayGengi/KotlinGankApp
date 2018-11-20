@@ -30,7 +30,8 @@
                 android:scaleType="centerCrop"
                 app:qmui_layout_collapseMode="parallax"
                 app:qmui_layout_collapseParallaxMultiplier="0.7"
-                tools:ignore="MissingPrefix" />
+                tools:ignore="MissingPrefix"
+                />
 
             <com.qmuiteam.qmui.widget.QMUITopBar
                 android:id="@+id/topbar"
@@ -39,7 +40,9 @@
                 android:fitsSystemWindows="true"
                 app:qmui_layout_collapseMode="pin"
                 app:qmui_topbar_bg_color="@color/qmui_config_color_transparent"
-                app:qmui_topbar_need_separator="false" />
+
+                app:qmui_topbar_need_separator="false"
+                />
         </com.qmuiteam.qmui.widget.QMUICollapsingTopBarLayout>
     </com.qmuiteam.qmui.widget.QMUIAppBarLayout>
 
