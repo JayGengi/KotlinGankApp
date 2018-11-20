@@ -105,6 +105,9 @@ class HomeFragment : BaseFragment(), HomeContract.View {
      */
     override fun dismissLoading() {
         multipleStatusView?.showContent()
+//        if(mRefreshLayout!=null && mRefreshLayout.isLoading){
+//            mRefreshLayout.finishRefresh()
+//        }
     }
 
     override fun onDestroy() {

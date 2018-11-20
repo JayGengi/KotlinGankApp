@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.qmuiteam.qmui.widget.QMUITopBar
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <com.jaygengi.gank.widget.SlidingTabLayout
+        android:id="@+id/sliding_tabs"
         android:paddingBottom="0dp"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
@@ -17,6 +19,7 @@
         android:background="@color/common_color_line"/>
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1" />
