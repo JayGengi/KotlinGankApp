@@ -4,7 +4,7 @@
 
 Kotlin+MVP的框架思路来源于  [git-xuhao](https://github.com/git-xuhao/KotlinMvp)。
 
-![APK下载地址](https://github.com/JayGengi/KotlinGankApp/blob/master/app/release/kotlinmvp_v1.1.0_release.apk)
+[APK下载地址](https://github.com/JayGengi/KotlinGankApp/blob/master/app/release/kotlinmvp_v1.1.0_release.apk)
 
 ## 前言
 
