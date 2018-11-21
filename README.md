@@ -1,8 +1,8 @@
 # KotlinGankApp客户端
 
-基于 **MVP** 结构，使用 Kotlin 语言开发和借助[https://gank.io/](Gank.Io)提供的API开发的一个客户端
+基于 **MVP** 结构，使用 Kotlin 语言开发和借助  [Gank.Io](https://gank.io/)   提供的API开发的一个客户端
 
-Kotlin+MVP的框架思路来源于[https://github.com/git-xuhao/KotlinMvp](git-xuhao)。
+Kotlin+MVP的框架思路来源于  [git-xuhao](https://github.com/git-xuhao/KotlinMvp)。
 
 ## 前言
 
