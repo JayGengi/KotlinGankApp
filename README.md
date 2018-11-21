@@ -4,6 +4,7 @@
 
 Kotlin+MVP的框架思路来源于  [git-xuhao](https://github.com/git-xuhao/KotlinMvp)。
 
+![APK下载地址](https://github.com/JayGengi/KotlinGankApp/blob/master/app/release/kotlinmvp_v1.1.0_release.apk)
 ## 前言
 
 作为Google主要力推的Kotlin开发语言，早已心痒，跃跃欲试。对于使用过程中，方法和函数的便捷使用和扩展插件的方便。值的大家尝试一波
