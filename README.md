@@ -15,8 +15,3 @@ Kotlin+MVP的框架思路来源于  [git-xuhao](https://github.com/git-xuhao/Kot
 
 <img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/img.png" width=200><img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/mine.png" width=200>
 
-
-
-
-
-> 喜欢的话点个star吧
