@@ -11,9 +11,9 @@ Kotlin+MVP的框架思路来源于[https://github.com/git-xuhao/KotlinMvp](git-x
 
 ### 界面截图
 
-<img src="https://github.com/JayGengi/KotlinGankApp/show/home.png" width=200> <img src="https://github.com/JayGengi/KotlinGankApp/show/type.png" width=200><img src="https://github.com/JayGengi/KotlinGankApp/show/gank_type.png" width=200>
+<img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/home.png" width=200> <img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/type.png" width=200><img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/gank_type.png" width=200>
 
-<img src="https://github.com/JayGengi/KotlinGankApp/show/img.png" width=200><img src="https://github.com/JayGengi/KotlinGankApp/show/mine.png" width=200>
+<img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/img.png" width=200><img src="https://github.com/JayGengi/KotlinGankApp/tree/master/show/mine.png" width=200>
 
 
 
